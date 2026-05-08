@@ -34,19 +34,31 @@ using namespace std;
 // Print the numbers 1 through 10 on one line separated by spaces.
 void warmup_printNumbers()
 {
-    cout << "\n--- Warm-up 1-A: Print 1 to 10 ---\n";
-    // TODO: write a for-loop that prints 1 2 3 4 5 6 7 8 9 10
+	cout << "\n--- Warm-up 1-A: Print 1 to 10 ---\n";
+	// TODO: write a for-loop that prints 1 2 3 4 5 6 7 8 9 10
+	for (int i = 1; i <= 10; i++)
+	{
+		cout << i << " ";
+	}
 }
 
 // Exercise 1-B
 // Ask the user to enter 5 integers and print their sum.
 void warmup_sumFive()
 {
-    cout << "\n--- Warm-up 1-B: Sum of 5 numbers ---\n";
-    int sum = 0;
-    // TODO: declare an integer variable 'num'
-    // TODO: loop 5 times: read num with cin, then add it to sum
-    // TODO: print sum
+	cout << "\n--- Warm-up 1-B: Sum of 5 numbers ---\n";
+	int sum = 0;
+	// TODO: declare an integer variable 'num'
+	// TODO: loop 5 times: read num with cin, then add it to sum
+	// TODO: print sum
+
+	int num;
+	for (int i = 0; i < 5; i++)
+	{
+		cin >> num;
+		sum += num;
+	}
+	cout << sum;
 }
 
 // ============================================================
@@ -65,37 +77,43 @@ void warmup_sumFive()
 
 void concepts_demo()
 {
-    cout << "\n--- Section 2: Core Concepts Demo ---\n";
+	cout << "\n--- Section 2: Core Concepts Demo ---\n";
 
-    // --- GIVEN EXAMPLE (do not modify) ---
-    int scores[5] = {90, 75, 88, 62, 95};
+	// --- GIVEN EXAMPLE (do not modify) ---
+	int scores[5] = { 90, 75, 88, 62, 95 };
 
-    cout << "Scores: ";
-    for (int i = 0; i < 5; i++)
-    {
-        cout << scores[i];
-        if (i < 4) cout << ", ";
-    }
-    cout << "\n";
-    // First element
-    cout << "First score : " << scores[0] << "\n";
-    // Last element
-    cout << "Last score  : " << scores[4] << "\n";
+	cout << "Scores: ";
+	for (int i = 0; i < 5; i++)
+	{
+		cout << scores[i];
+		if (i < 4) cout << ", ";
+	}
+	cout << "\n";
+	// First element
+	cout << "First score : " << scores[0] << "\n";
+	// Last element
+	cout << "Last score  : " << scores[4] << "\n";
 
-    // --- YOUR TURN ---
+	// --- YOUR TURN ---
 
-    // TODO 2-A: declare an integer array called 'temps' of size 7
-    //           and initialize it with: 22, 19, 25, 30, 28, 17, 21
+	// TODO 2-A: declare an integer array called 'temps' of size 7
+	//           and initialize it with: 22, 19, 25, 30, 28, 17, 21
+	int temps[7] = { 22, 19, 25, 30, 28, 17, 21 };
 
-    // TODO 2-B: print all elements of 'temps' using a for-loop
-    cout << "Temperatures: ";
-    // your loop here
+	// TODO 2-B: print all elements of 'temps' using a for-loop
+	cout << "Temperatures: ";
+	// your loop here
+	for (int i = 0; i < 7; i++)
+	{
+		cout << temps[i] << " ";
+	}
 
-    cout << "\n";
+	cout << "\n";
 
-    // TODO 2-C: change the 4th element (index 3) of 'temps' to 35
-    //           then print it to verify
-
+	// TODO 2-C: change the 4th element (index 3) of 'temps' to 35
+	//           then print it to verify
+	temps[3] = 35;
+	cout << temps[3] << endl;
 }
 
 // ============================================================
@@ -111,21 +129,35 @@ void concepts_demo()
 // ----------------------------------------------------------
 void exercise_fillArray()
 {
-    cout << "\n--- Exercise 3-A: Fill array from input ---\n";
+	cout << "\n--- Exercise 3-A: Fill array from input ---\n";
 
-    const int MAX = 20;
-    int grades[MAX];
-    int n = 0;
+	const int MAX = 20;
+	int grades[MAX];
+	int n = 0;
 
-    // TODO: ask the user to enter n (1 ≤ n ≤ 20)
-    //       keep asking until n is in range
+	// TODO: ask the user to enter n (1 ≤ n ≤ 20)
+	//       keep asking until n is in range
+	while (n <= 0 || n >= 20)
+	{
+		cout << "please provide how many grades you want to enter" << endl;
+		cin >> n;
+	}
 
-    // TODO: loop n times and read each grade into grades[i]
+	// TODO: loop n times and read each grade into grades[i]
+	for (int i = 0; i < n; i++)
+	{
+		cout << "please provide " << i + 1 << ". grade" << endl;
+		cin >> grades[i];
+	}
 
-    // TODO: print all n grades on one line
-    cout << "You entered: ";
-    // your loop here
-    cout << "\n";
+	// TODO: print all n grades on one line
+	cout << "You entered: ";
+	// your loop here
+	for (int i = 0; i < n; i++)
+	{
+		cout << grades[i] << " ";
+	}
+	cout << "\n";
 }
 
 // ----------------------------------------------------------
@@ -140,31 +172,46 @@ void exercise_fillArray()
 // ----------------------------------------------------------
 void exercise_statistics()
 {
-    cout << "\n--- Exercise 3-B: Statistics ---\n";
+	cout << "\n--- Exercise 3-B: Statistics ---\n";
 
-    int data[8] = {34, 67, 23, 89, 12, 55, 78, 45};
-    int size = 8;
+	int data[8] = { 34, 67, 23, 89, 12, 55, 78, 45 };
+	int size = 8;
 
-    // TODO: compute the sum using a loop
-    int sum = 0;
-    // your loop here
+	// TODO: compute the sum using a loop
+	int sum = 0;
+	// your loop here
+	for (int i = 0; i < size; i++)
+	{
+		sum += data[i];
+	}
 
-    // TODO: compute the average (cast to double)
-    double avg = 0.0;
-    // your calculation here
+	// TODO: compute the average (cast to double)
+	double avg = 0.0;
+	// your calculation here
+	double sumD = static_cast<double>(sum);
+	double sizeD = static_cast<double>(size);
+	avg = sumD / sizeD;
 
-    // TODO: find minimum — start with data[0] and update in a loop
-    int minVal = data[0];
-    // your loop here
+	// TODO: find minimum — start with data[0] and update in a loop
+	int minVal = data[0];
+	// your loop here
+	for (int i = 0; i < size; i++)
+	{
+		if (data[i] < minVal) minVal = data[i];
+	}
 
-    // TODO: find maximum — start with data[0] and update in a loop
-    int maxVal = data[0];
-    // your loop here
+	// TODO: find maximum — start with data[0] and update in a loop
+	int maxVal = data[0];
+	// your loop here
+	for (int i = 0; i < size; i++)
+	{
+		if (data[i] > maxVal) maxVal = data[i];
+	}
 
-    cout << "Sum     : " << sum    << "\n";
-    cout << "Average : " << avg    << "\n";
-    cout << "Minimum : " << minVal << "\n";
-    cout << "Maximum : " << maxVal << "\n";
+	cout << "Sum     : " << sum << "\n";
+	cout << "Average : " << avg << "\n";
+	cout << "Minimum : " << minVal << "\n";
+	cout << "Maximum : " << maxVal << "\n";
 }
 
 // ----------------------------------------------------------
@@ -183,21 +230,31 @@ void exercise_statistics()
 //   Return    : int  (index of target, or -1)
 int linearSearch(int arr[], int size, int target)
 {
-    // TODO: loop through arr; if arr[i] == target return i
-    // TODO: if you finish the loop without finding it, return -1
-    return -1; // replace this placeholder
+	// TODO: loop through arr; if arr[i] == target return i
+	// TODO: if you finish the loop without finding it, return -1
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] == target)
+			return i;
+	}
+	return -1; // replace this placeholder
 }
 
 void exercise_search()
 {
-    cout << "\n--- Exercise 3-C: Linear Search ---\n";
+	cout << "\n--- Exercise 3-C: Linear Search ---\n";
 
-    int values[10] = {5, 12, 8, 3, 27, 19, 6, 44, 31, 7};
+	int values[10] = { 5, 12, 8, 3, 27, 19, 6, 44, 31, 7 };
 
-    // TODO: call linearSearch for target = 27 and print the result
-    //       e.g.  "27 found at index 4"  or  "27 not found"
+	// TODO: call linearSearch for target = 27 and print the result
+	//       e.g.  "27 found at index 4"  or  "27 not found"
 
-    // TODO: call linearSearch for target = 99 and print the result
+	int searchIndex = linearSearch(values, 10, 27);
+	if(searchIndex == -1) cout <<  "27 not found" << endl;
+	else cout << "27 found at index " << searchIndex << endl;
+
+	// TODO: call linearSearch for target = 99 and print the result
+	cout << linearSearch(values, 10, 99) << endl;
 }
 
 // ----------------------------------------------------------
@@ -210,18 +267,23 @@ void exercise_search()
 // ----------------------------------------------------------
 void exercise_countChar()
 {
-    cout << "\n--- Exercise 3-D: Count characters ---\n";
+	cout << "\n--- Exercise 3-D: Count characters ---\n";
 
-    char text[] = "Abracadabra is a famous magic phrase";
-    int  len    = 36;   // number of characters (do not change)
+	char text[] = "Abracadabra is a famous magic phrase";
+	int  len = 36;   // number of characters (do not change)
 
-    // TODO: declare a counter, loop over text[0..len-1],
-    //       increment when you find 'a' or 'A'
+	// TODO: declare a counter, loop over text[0..len-1],
+	//       increment when you find 'a' or 'A'
 
-    int count = 0;
-    // your loop here
+	int count = 0;
+	// your loop here
 
-    cout << "Letter 'a'/'A' appears " << count << " times.\n";
+	for (int i = 0; i < len; i++)
+	{
+		if (text[i] == 'a' || text[i] == 'A') count++;
+	}
+
+	cout << "Letter 'a'/'A' appears " << count << " times.\n";
 }
 
 // ----------------------------------------------------------
@@ -237,18 +299,39 @@ void exercise_countChar()
 // ----------------------------------------------------------
 void exercise_bubbleSort()
 {
-    cout << "\n--- Exercise 3-E: Bubble Sort ---\n";
+	cout << "\n--- Exercise 3-E: Bubble Sort ---\n";
 
-    int arr[9] = {64, 34, 25, 12, 22, 11, 90, 45, 7};
-    int size   = 9;
+	int arr[9] = { 64, 34, 25, 12, 22, 11, 90, 45, 7 };
+	int size = 9;
 
-    // TODO: implement the two-loop bubble sort described above
-    //       use a temporary variable for the swap
+	// TODO: implement the two-loop bubble sort described above
+	//       use a temporary variable for the swap
+	for (int i = 0; i < size - 1; i++)
+	{
+		bool isSorted = true;
+		for (int k = 0; k < size - i - 1; k++)
+		{
+			if (arr[k] > arr[k + 1])
+			{
+				int a, b;
+				a = arr[k];
+				b = arr[k + 1];
+				arr[k] = b;
+				arr[k + 1] = a;
+				isSorted = false;
+			}
+		}
+		if (isSorted) break;
+	}
+	// TODO: print the sorted array
+	cout << "Sorted: ";
+	// your loop here
+	for (int i = 0; i < size; i++)
+	{
+		cout << arr[i] << " ";
+	}
 
-    // TODO: print the sorted array
-    cout << "Sorted: ";
-    // your loop here
-    cout << "\n";
+	cout << "\n";
 }
 
 // ============================================================
@@ -269,18 +352,27 @@ void exercise_bubbleSort()
 // ----------------------------------------------------------
 void challenge_reverse()
 {
-    cout << "\n--- Challenge A: Reverse In-Place ---\n";
+	cout << "\n--- Challenge A: Reverse In-Place ---\n";
 
-    int arr[7] = {10, 20, 30, 40, 50, 60, 70};
-    int size   = 7;
+	int arr[7] = { 10, 20, 30, 40, 50, 60, 70 };
+	int size = 7;
 
-    // TODO: use a loop that swaps arr[i] with arr[size-1-i]
-    //       stop when i reaches the midpoint (size/2)
+	// TODO: use a loop that swaps arr[i] with arr[size-1-i]
+	//       stop when i reaches the midpoint (size/2)
 
-    cout << "Reversed: ";
-    for (int i = 0; i < size; i++)
-        cout << arr[i] << " ";
-    cout << "\n";
+	for (int i = 0; i <= size / 2; i++)
+	{
+		int a, b;
+		a = arr[i];
+		b = arr[size - 1 - i];
+		arr[i] = b;
+		arr[size - 1 - i] = a;
+	}
+
+	cout << "Reversed: ";
+	for (int i = 0; i < size; i++)
+		cout << arr[i] << " ";
+	cout << "\n";
 }
 
 // ----------------------------------------------------------
@@ -298,22 +390,40 @@ void challenge_reverse()
 // ----------------------------------------------------------
 void challenge_removeDuplicates()
 {
-    cout << "\n--- Challenge B: Remove Duplicates ---\n";
+	cout << "\n--- Challenge B: Remove Duplicates ---\n";
 
-    int original[10] = {4, 7, 2, 4, 9, 7, 3, 2, 8, 4};
-    int origSize     = 10;
+	int original[10] = { 4, 7, 2, 4, 9, 7, 3, 2, 8, 4 };
+	int origSize = 10;
 
-    int unique[10];   // result array (max same size as original)
-    int uniqueCount  = 0;
+	int unique[10];   // result array (max same size as original)
+	int uniqueCount = 0;
 
-    // TODO: loop through original[]; for each element check
-    //       whether it already exists in unique[0..uniqueCount-1]
-    //       if NOT found, add it to unique[] and increment uniqueCount
+	// TODO: loop through original[]; for each element check
+	//       whether it already exists in unique[0..uniqueCount-1]
+	//       if NOT found, add it to unique[] and increment uniqueCount
 
-    cout << "Unique values (" << uniqueCount << "): ";
-    for (int i = 0; i < uniqueCount; i++)
-        cout << unique[i] << " ";
-    cout << "\n";
+	for (int i = 0; i < origSize; i++)
+	{
+		bool foundSame = false;
+		for (int k = 0; k < origSize; k++)
+		{
+			if (original[i] == unique[k])
+			{
+				foundSame = true;
+				break;
+			}
+		}
+		if(foundSame==false)
+		{
+			unique[uniqueCount] = original[i];
+			uniqueCount++;
+		}
+	}
+
+	cout << "Unique values (" << uniqueCount << "): ";
+	for (int i = 0; i < uniqueCount; i++)
+		cout << unique[i] << " ";
+	cout << "\n";
 }
 
 // ============================================================
@@ -321,31 +431,31 @@ void challenge_removeDuplicates()
 // ============================================================
 int main()
 {
-    cout << "========================================\n";
-    cout << "  CMP1001 Lab — Arrays in C++\n";
-    cout << "========================================\n";
+	cout << "========================================\n";
+	cout << "  CMP1001 Lab — Arrays in C++\n";
+	cout << "========================================\n";
 
-    // Section 1
-    warmup_printNumbers();
-    warmup_sumFive();
+	//Section 1
+	warmup_printNumbers();
+	warmup_sumFive();
 
-    // Section 2
-    concepts_demo();
+	// Section 2
+	concepts_demo();
 
-    // Section 3
-    exercise_fillArray();
-    exercise_statistics();
-    exercise_search();
-    exercise_countChar();
-    exercise_bubbleSort();
+	// Section 3
+	exercise_fillArray();
+	exercise_statistics();
+	exercise_search();
+	exercise_countChar();
+	exercise_bubbleSort();
 
-    // Section 4
-    challenge_reverse();
-    challenge_removeDuplicates();
+	// Section 4
+	challenge_reverse();
+	challenge_removeDuplicates();
 
-    cout << "\n========================================\n";
-    cout << "  Lab complete — good work!\n";
-    cout << "========================================\n";
+	cout << "\n========================================\n";
+	cout << "  Lab complete — good work!\n";
+	cout << "========================================\n";
 
-    return 0;
+	return 0;
 }
